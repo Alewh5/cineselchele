@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Hash;
-use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -26,12 +26,14 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        // Crear usuario administrador
-        User::create([
+        // Crear usuario administrador usando DB::table
+        DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('admin'), // Hash la contraseña
             'role' => 'admin', // Establece el rol como admin
+            'password' => Hash::make('admin'), // Hash la contraseña
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
