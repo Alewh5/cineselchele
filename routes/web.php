@@ -8,6 +8,8 @@ use App\Http\Controllers\ProyeccionController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\AsientoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\ViewUserController;
+use Illuminate\Contracts\View\View;
 
 Route::get('/', function () {
     return view('dashboard');
@@ -25,10 +27,10 @@ Route::middleware([
         Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 
         // Rutas para Sucursales
-        Route::delete('/sucursales/{id}', [SucursalController::class, 'destroy'])->name('sucursales.destroy');
+        Route::delete('/sucursal/{id}', [SucursalController::class, 'destroy'])->name('sucursales.destroy');
         
-        Route::get('/sucursales/create', [SucursalController::class, 'create'])->name('sucursales.create');
-        Route::post('/sucursales', [SucursalController::class, 'store'])->name('sucursales.store');
+        Route::get('/sucursal/create', [SucursalController::class, 'create'])->name('sucursales.create');
+        Route::post('/sucursal', [SucursalController::class, 'store'])->name('sucursales.store');
         
 
         // Rutas para Salas
@@ -47,26 +49,26 @@ Route::middleware([
         Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
 
         // Rutas para Sucursales MOD
-        Route::get('/sucursales', [SucursalController::class, 'index'])->name('sucursales.index');
-        Route::get('/sucursales/{sucursal}', [SucursalController::class, 'show'])->name('sucursal.show');
+        Route::get('/sucursal', [SucursalController::class, 'index'])->name('sucursales.index');
+        Route::get('/sucursal/{sucursal}', [SucursalController::class, 'show'])->name('sucursal.show');
 
         // Rutas para Salas MOD
         Route::get('/salas/{slug}', [SalaController::class, 'show'])->name('salas.show');
 
         // Rutas para Proyecciones
         Route::get('/proyecciones/create/{sala_id}', [ProyeccionController::class, 'create'])->name('proyecciones.create');
-        Route::post('/proyecciones', [ProyeccionController::class, 'store'])->name('proyecciones.store');
-        Route::get('/proyecciones/{id}', [ProyeccionController::class, 'show'])->name('proyecciones.show');
+        Route::post('/proyeccion', [ProyeccionController::class, 'store'])->name('proyecciones.store');
+        Route::get('/proyeccion/{id}', [ProyeccionController::class, 'show'])->name('proyecciones.show');
         Route::delete('/proyecciones/{id}', [ProyeccionController::class, 'destroy'])->name('proyecciones.destroy');
 
         // Ruta para listar Películas
-        Route::delete('/peliculas/{id}', [PeliculaController::class, 'destroy'])->name('peliculas.destroy');
-        Route::get('/peliculas', [PeliculaController::class, 'index'])->name('peliculas.index');
-        Route::get('/peliculas/create', [PeliculaController::class, 'create'])->name('peliculas.create');
-        Route::get('/peliculas/{id}', [PeliculaController::class, 'show'])->name('peliculas.show');
-        Route::get('peliculas/{id}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
-        Route::post('/peliculas', [PeliculaController::class, 'store'])->name('peliculas.store');
-        Route::put('peliculas/{id}', [PeliculaController::class, 'update'])->name('peliculas.update');
+        Route::delete('/pelicula/{id}', [PeliculaController::class, 'destroy'])->name('peliculas.destroy');
+        Route::get('/pelicula', [PeliculaController::class, 'index'])->name('peliculas.index');
+        Route::get('/pelicula/create', [PeliculaController::class, 'create'])->name('peliculas.create');
+        Route::get('/pelicula/{id}', [PeliculaController::class, 'show'])->name('peliculas.show');
+        Route::get('pelicula/{id}/edit', [PeliculaController::class, 'edit'])->name('peliculas.edit');
+        Route::post('/pelicula', [PeliculaController::class, 'store'])->name('peliculas.store');
+        Route::put('pelicula/{id}', [PeliculaController::class, 'update'])->name('peliculas.update');
 
         // Ruta para los asientos
         Route::get('/asientos', [AsientoController::class, 'show'])->name('asientos.show');
@@ -79,5 +81,10 @@ Route::middleware([
     });
 
 });
+
+Route::get('/inicio', [ViewUserController::class, 'inicio'])->name('viewuser.inicio');
+Route::get('/nosotros', [ViewUserController::class, 'nosotros'])->name('viewuser.nosotros');
+Route::get('/proyecciones', [ViewUserController::class, 'proyeccion'])->name('viewuser.proyeccion');
+Route::get('/sucursales', [ViewUserController::class, 'sucursales'])->name('viewuser.sucursales');
 
 

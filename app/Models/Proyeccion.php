@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Pelicula;
 use App\Models\Reserva;
 use App\Models\Asiento;
+use App\Models\Sucursal;
 
 class Proyeccion extends Model
 {
@@ -40,6 +41,11 @@ class Proyeccion extends Model
     public function asientos()
     {
         return $this->belongsTo(Asiento::class);
+    }
+
+    public function sucursal()
+    {
+        return $this->belongsTo(Sucursal::class);
     }
 
 }

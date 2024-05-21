@@ -68,6 +68,12 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
+
+
+    <!-- Otras etiquetas meta y enlaces CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
 
 <body class="font-sans antialiased">
@@ -82,23 +88,23 @@
               <div class="collapse navbar-collapse order-3 order-md-2" id="navbar-left">
                 <ul class="navbar-nav me-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('viewuser.inicio') }}">Inicio</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Películas</a>
+                    <a class="nav-link" href="{{ route('viewuser.proyeccion') }}">Proyecciones</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Sucursales</a>
+                    <a class="nav-link" href="{{ route('viewuser.sucursales') }}">Sucursales</a>
                   </li>
                 </ul>
               </div>
 
-              <a class="navbar-brand order-1 order-md-3" href="#">Cines El Chele</a>
+              <a class="navbar-brand order-1 order-md-3" href="{{ url('/') }}">Cines El Chele</a>
 
               <div class="collapse navbar-collapse order-4 order-md-4" id="navbar-right">
                 <ul class="navbar-nav ms-auto">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Nosotros</a>
+                    <a class="nav-link active" aria-current="page" href="{{ route('viewuser.nosotros') }}">Nosotros</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Estrenos</a>
