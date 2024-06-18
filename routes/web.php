@@ -8,6 +8,7 @@ use App\Http\Controllers\ProyeccionController;
 use App\Http\Controllers\PeliculaController;
 use App\Http\Controllers\AsientoController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewUserController;
 use Illuminate\Contracts\View\View;
 
@@ -23,23 +24,21 @@ Route::middleware([
 
     Route::group(['middleware' => ['auth', 'admin']], function () {
         Route::resource('horarios', 'HorarioController');
-
         Route::get('admin', [AdminController::class, 'index'])->name('admin.index');
-
-        // Rutas para Sucursales
         Route::delete('/sucursal/{id}', [SucursalController::class, 'destroy'])->name('sucursales.destroy');
-        
         Route::get('/sucursal/create', [SucursalController::class, 'create'])->name('sucursales.create');
         Route::post('/sucursal', [SucursalController::class, 'store'])->name('sucursales.store');
-        
-
-        // Rutas para Salas
         Route::post('/salas', [SalaController::class, 'store'])->name('salas.store');
         Route::get('/salas/create', [SalaController::class, 'create'])->name('salas.create');
-        
         Route::delete('/salas/{id}', [SalaController::class, 'destroy'])->name('salas.destroy');
-        // Route::get('/salas/{id}/edit', [SalaController::class, 'store'])->name('salas.store');
-
+        Route::get('/users', [UserController::class, 'index'])->name('usuarios.index');
+        Route::get('/users/create', [UserController::class, 'create'])->name('usuarios.create');
+        Route::get('/users/{id}', [UserController::class, 'show'])->name('usuarios.show');
+        Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('usuarios.edit');
+        
+        Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('usuarios.destroy');
+        Route::put('users/{id}', [UserController::class, 'update'])->name('usuarios.update');
+        
         
         
     });

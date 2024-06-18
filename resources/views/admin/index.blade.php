@@ -17,7 +17,7 @@
     }
 
     .btn-custom:hover {
-        background-color: #0056b3; /* Color ligeramente más oscuro */
+        background-color: #0056b3; 
     }
 </style>
 

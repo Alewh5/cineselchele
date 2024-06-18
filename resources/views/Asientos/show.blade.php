@@ -16,7 +16,7 @@
             </div>
             <div class="asientosdiv">
                 @for ($i = 1; $i <= $sala->capacidad_asientos; $i++)
-                    <a href="{{ route('asientos.show', ['id' => $i]) }}" class="asientosdiv boton-asiento">N {{ $i }}</a> <!-- Agregamos la clase "boton-asiento" -->
+                    <a href="{{ route('asientos.show', ['id' => $i]) }}" class="asientosdiv boton-asiento">N {{ $i }}</a>
                     @if ($i % 10 == 0)
                         <br> <!-- Agregamos un cambio de línea después de cada 10 elementos -->
                     @endif
@@ -32,7 +32,6 @@
                 <div class="reserva">
                     <p>Película: {{ $proyeccion->pelicula->titulo }}</p>
                     <p>Hora de inicio: {{ $proyeccion->hora_inicio }}</p>
-                    <!-- Agrega más información sobre la reserva si es necesario -->
                 </div>
             @endforeach
         </div>
@@ -50,11 +49,8 @@
             const asientos = document.querySelectorAll('.boton-asiento');
             asientos.forEach(asiento => {
                 asiento.addEventListener('click', function(event) {
-                    // Prevenir el comportamiento predeterminado del enlace
                     event.preventDefault();
-                    // Obtener el ID del asiento desde el texto del enlace
                     const asientoId = this.textContent.trim().split(' ')[1];
-                    // Redirigir al usuario a la página de detalles del asiento con el ID correspondiente
                     window.location.href = this.getAttribute('href') + '?asiento_id=' + asientoId;
                 });
             });

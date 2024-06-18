@@ -318,7 +318,7 @@ return [
         [
             'text' => 'Inicio',
             'route' => 'admin.index',
-            'icon' => 'fas fa-home',
+            'icon' => 'fas fa-fw fa-home',
             'label' => 4,
             'label_color' => 'success',
         ],
@@ -326,7 +326,7 @@ return [
         [
             'text' => 'Peliculas',
             'route' => 'peliculas.index',
-            'icon' => 'fas fa-crosshairs',
+            'icon' => 'fas fa-fw fa-film',
         ],
         [
             'text' => 'change_password',
@@ -335,8 +335,8 @@ return [
         ],
         [
             'text' => 'Usuarios',
-            'url' => 'admin/usuarios',
-            'icon' => 'fas fa-fw fa-lock',
+            'route' => 'usuarios.index',
+            'icon' => 'fas fa-fw fa-user',
         ],
         
     ],
