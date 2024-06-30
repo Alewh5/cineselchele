@@ -329,7 +329,7 @@ return [
             'icon' => 'fas fa-fw fa-film',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Perfil',
             'url' => 'admin/profile',
             'icon' => 'fas fa-fw fa-lock',
         ],

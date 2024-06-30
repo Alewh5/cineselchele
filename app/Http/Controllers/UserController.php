@@ -49,4 +49,9 @@ class UserController extends Controller
 
         return redirect()->route('usuarios.index')->with('success', 'usuario eliminado exitosamente.');
     }
+
+    public function profilead()
+    {
+        return view('profile.admin');
+    }
 }

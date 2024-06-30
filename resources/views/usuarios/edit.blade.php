@@ -13,7 +13,41 @@
                     <hr>
                 </div>
                 <br>
-                <!-- /.box-header -->
+                <div>
+                    <div class="card card-info">
+                        <div class="card-header">
+                                <h3 class="card-title">Funciones</h3>
+                            </div>
+                            <div class="card-body">
+                                <p><strong>Funciones del Administrador:</strong></p>
+                                    <ul>
+                                        <li><strong>Gestión Completa del Sistema:</strong></li>
+                                        <ul>
+                                            <li><strong>Horarios:</strong> Administrar los horarios.</li>
+                                            <li><strong>Sucursales:</strong> Crear, eliminar, y gestionar sucursales.</li>
+                                            <li><strong>Salas:</strong> Crear, eliminar, y gestionar salas.</li>
+                                            <li><strong>Usuarios:</strong> Administrar y gestionar todos los usuarios.</li>
+                                            <li><strong>Películas:</strong> Agregar, editar, y eliminar películas.</li>
+                                            <li><strong>Proyecciones:</strong> Administrar proyecciones de películas.</li>
+                                            <li><strong>Asientos y Reservas:</strong> Gestionar asientos y reservas de usuarios.</li>
+                                        </ul>
+                                    </ul>
+                            </div>
+                            <div class="card-footer">
+                                <p><strong>Funciones del Moderador:</strong></p>
+                                <ul>
+                                    <li><strong>Gestión Operativa del Sistema:</strong></li>
+                                    <ul>
+                                        <li><strong>Sucursales:</strong> Ver y gestionar detalles de las sucursales.</li>
+                                        <li><strong>Salas:</strong> Ver detalles de las salas.</li>
+                                        <li><strong>Películas:</strong> Agregar, editar, y eliminar películas.</li>
+                                        <li><strong>Proyecciones:</strong> Crear, ver, y eliminar proyecciones de películas.</li>
+                                        <li><strong>Asientos y Reservas:</strong> Gestionar asientos y reservas de usuarios.</li>
+                                    </ul>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 <!-- form start -->
                 <form role="form" method="POST" action="{{ route('usuarios.update', $user->id) }}" enctype="multipart/form-data">
                     @csrf

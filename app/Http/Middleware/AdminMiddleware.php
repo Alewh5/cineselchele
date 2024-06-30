@@ -25,7 +25,7 @@ class AdminMiddleware
 
         session()->flash('error', 'No Tienes permisos de administrador');
 
-        return redirect()->route('dashboard');
+        return redirect()->route('viewuser.inicio');
         
     }
 }
